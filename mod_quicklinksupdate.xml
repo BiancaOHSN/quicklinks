@@ -6,7 +6,7 @@
         <element>mod_quicklinks</element>
         <type>module</type>
         <version>1.1</version>
-            <changelogurl>https://github.com/BiancaOHSN/quicklinks/blob/main/changelog.xml</changelogurl>
+            <changelogurl>https://raw.githubusercontent.com/BiancaOHSN/quicklinks/main/changelog.xml</changelogurl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/BiancaOHSN/quicklinks/releases/download/v.1.1/mod_quicklinks_11.zip</downloadurl>
         </downloads>
