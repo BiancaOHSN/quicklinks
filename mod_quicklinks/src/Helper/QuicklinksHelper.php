@@ -6,7 +6,7 @@
  *  link: https://www.ohsn.nl
  */
 
-namespace OHSN\Module\Quicklinks\Administrator\Helper;
+namespace Joomla\Module\Quicklinks\Administrator\Helper;
 
 // No direct access.
 defined('_JEXEC') or die;
