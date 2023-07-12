@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fieldset name="custom_items" label="Custom Items"
+              addfieldpath="/administrator/modules/mod_quicklinks/fields">
+        <field name="article_category"
+               type="sql"
+               default=""
+               label="MOD_QUICKLINKS_ITEM_CATEGORY_LABEL"
+               sql_select="id, title"
+               sql_from="#__categories"
+               sql_filter="extension"
+               sql_default_extension="com_content"
+               sql_order="title ASC"
+               key_field="id"
+               value_field="title">
+            <option value="">JALL</option>
+        </field>
+        <field name="article_author"
+               type="sql"
+               default=""
+               label="MOD_QUICKLINKS_ITEM_AUTHOR_LABEL"
+               sql_select="id, name"
+               sql_from="#__users"
+               sql_order="name ASC"
+               key_field="id"
+               value_field="name">
+            <option value="">JALL</option>
+            <option value="current">MOD_QUICKLINKS_CURRENT_USER_LABEL</option>
+        </field>
+        <field
+                name="article_language"
+                type="language"
+                client="site"
+                default="*"
+                label="MOD_QUICKLINKS_SELECT_LANGUAGE_LABEL">
+            <option value="*">JALL</option>
+        </field>
+        <field
+                name="item_icon"
+                type="text"
+                default="far fa-folder"
+                label="MOD_QUICKLINKS_ITEM_ICON_LABEL"
+                description="MOD_QUICKLINKS_ITEM_ICON_DESC"
+        />
+    </fieldset>
+</form>
+

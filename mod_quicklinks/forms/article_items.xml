@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fieldset name="custom_items" label="Custom Items"
+              addfieldpath="/administrator/modules/mod_quicklinks/elements">
+        <field name="item_id"
+               type="sql"
+               default=""
+               label="MOD_QUICKLINKS_ITEM_ARTICLE_LABEL"
+               sql_select="id, title"
+               sql_from="#__content"
+               sql_order="title ASC"
+               key_field="id"
+               value_field="title">
+        </field>
+        <field
+                name="item_icon"
+                type="text"
+                default="far fa-file-alt"
+                label="MOD_QUICKLINKS_ITEM_ICON_LABEL"
+                description="MOD_QUICKLINKS_ITEM_ICON_DESC"
+        />
+        <field
+                name="item_return"
+                type="text"
+                label="MOD_QUICKLINKS_ITEM_RETURN_LABEL"
+                description="MOD_QUICKLINKS_ITEM_RETURN_DESC"
+        />
+    </fieldset>
+</form>
+

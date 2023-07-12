@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="administrator" method="upgrade">
+    <name>MOD_QUICKLINKS</name>
+    <author>OHSN</author>
+    <creationDate>July 2023</creationDate>
+    <copyright>Copyright (C) 2023 OHSN. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later;</license>
+    <authorEmail>info@ohsn.nl</authorEmail>
+    <authorUrl>https://www.ohsn.nl</authorUrl>
+    <version>1.0</version>
+    <description>MOD_QUICKLINKS_XML_DESCRIPTION</description>
+    <namespace path="src">OHSN\Module\Quicklinks</namespace>
+    <files>
+        <filename module="mod_quicklinks">mod_quicklinks.php</filename>
+        <folder>forms</folder>
+        <folder>language</folder>
+        <folder>services</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="show_robots"
+                    type="list"
+                    label="MOD_QUICKLINKS_SHOW_ROBOTS_LABEL"
+                    default="0"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">MOD_QUICKLINKS_SHOW_ICON</option>
+                    <option value="2">MOD_QUICKLINKS_ONLY_ICON_NOINDEX</option>
+                    <option value="3">MOD_QUICKLINKS_ONLY_MESSAGE_NOINDEX</option>
+                </field>
+                <field
+                    name="article_items"
+                    type="subform"
+                    formsource="/administrator/modules/mod_quicklinks/forms/article_items.xml"
+                    multiple="true"
+                    label="MOD_QUICKLINKS_FORM_ARTICLE_LABEL"
+                />
+                <field
+                    name="category_items"
+                    type="subform"
+                    formsource="/administrator/modules/mod_quicklinks/forms/articles_items.xml"
+                    multiple="true"
+                    label="MOD_QUICKLINKS_FORM_ARTICLES_LABEL"
+                />
+                <field
+                    name="module_items"
+                    type="subform"
+                    formsource="/administrator/modules/mod_quicklinks/forms/module_items.xml"
+                    multiple="true"
+                    label="MOD_QUICKLINKS_FORM_MODULE_LABEL"
+                />
+                <field
+                    name="custom_items"
+                    type="subform"
+                    formsource="/administrator/modules/mod_quicklinks/forms/custom_items.xml"
+                    multiple="true"
+                    label="MOD_QUICKLINKS_FORM_ITEMS_LABEL"
+                />
+            </fieldset>
+            <fieldset name="default">
+                <field
+                    name="show_global"
+                    type="radio"
+                    label="MOD_QUICKLINKS_SHOW_GLOBAL_LABEL"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                    name="show_checkin"
+                    type="list"
+                    label="MOD_QUICKLINKS_SHOW_CHECKIN_LABEL"
+                    default="0"
+                    validate="options"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_QUICKLINKS_WITH_COUNT</option>
+                </field>
+                <field
+                    name="show_cache"
+                    type="list"
+                    label="MOD_QUICKLINKS_SHOW_CACHE_LABEL"
+                    default="0"
+                    validate="options"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_QUICKLINKS_WITH_COUNT</option>
+                </field>
+                <field
+                    name="show_users"
+                    type="list"
+                    label="MOD_QUICKLINKS_SHOW_USERS_LABEL"
+                    default="0"
+                    validate="options"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_QUICKLINKS_WITH_COUNT</option>
+                </field>
+                <field
+                    name="show_articles"
+                    type="list"
+                    label="MOD_QUICKLINKS_SHOW_ARTICLES_LABEL"
+                    default="0"
+                    validate="options"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_QUICKLINKS_WITH_COUNT</option>
+                </field>
+                <field
+                    name="show_tags"
+                    type="list"
+                    label="MOD_QUICKLINKS_SHOW_TAGS_LABEL"
+                    default="0"
+                    validate="options"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_QUICKLINKS_WITH_COUNT</option>
+                </field>
+                <field
+                    name="show_modules"
+                    type="list"
+                    label="MOD_QUICKLINKS_SHOW_MODULES_LABEL"
+                    default="0"
+                    validate="options"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_QUICKLINKS_WITH_COUNT</option>
+                </field>
+                <field
+                    name="show_categories"
+                    type="list"
+                    label="MOD_QUICKLINKS_SHOW_CATEGORIES_LABEL"
+                    default="0"
+                    validate="options"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_QUICKLINKS_WITH_COUNT</option>
+                </field>
+                <field
+                    name="show_media"
+                    type="radio"
+                    label="MOD_QUICKLINKS_SHOW_MEDIA_LABEL"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                    name="show_menuitems"
+                    type="list"
+                    label="MOD_QUICKLINKS_SHOW_MENUITEMS_LABEL"
+                    default="0"
+                    validate="options"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_QUICKLINKS_WITH_COUNT</option>
+                </field>
+                <field
+                    name="show_plugins"
+                    type="list"
+                    label="MOD_QUICKLINKS_SHOW_PLUGINS_LABEL"
+                    default="0"
+                    validate="options"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">MOD_QUICKLINKS_WITH_COUNT</option>
+                </field>
+                <field
+                    name="show_template_styles"
+                    type="radio"
+                    label="MOD_QUICKLINKS_SHOW_TEMPLATE_STYLES_LABEL"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                    name="show_template_code"
+                    type="radio"
+                    label="MOD_QUICKLINKS_SHOW_TEMPLATE_CODE_LABEL"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                    name="show_redirects"
+                    type="radio"
+                    label="MOD_QUICKLINKS_SHOW_REDIRECTS_LABEL"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="Hikashop">
+                <field
+                        name="show_hikashop_dashboard"
+                        type="radio"
+                        label="MOD_QUICKLINKS_SHOW_HIKASHOP_DASHBOARD_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_products"
+                        type="radio"
+                        label="MOD_QUICKLINKS_SHOW_HIKASHOP_PRODUCTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_categories"
+                        type="radio"
+                        label="MOD_QUICKLINKS_SHOW_HIKASHOP_CATEGORIES_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_users"
+                        type="radio"
+                        label="MOD_QUICKLINKS_SHOW_HIKASHOP_USERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_orders"
+                        type="radio"
+                        label="MOD_QUICKLINKS_SHOW_HIKASHOP_ORDERS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_discounts"
+                        type="radio"
+                        label="MOD_QUICKLINKS_SHOW_HIKASHOP_DISCOUNTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_coupons"
+                        type="radio"
+                        label="MOD_QUICKLINKS_SHOW_HIKASHOP_COUPONS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_carts"
+                        type="radio"
+                        label="MOD_QUICKLINKS_SHOW_HIKASHOP_CARTS_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_wishlist"
+                        type="radio"
+                        label="MOD_QUICKLINKS_SHOW_HIKASHOP_WISHLIST_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_waitlist"
+                        type="radio"
+                        label="MOD_QUICKLINKS_SHOW_HIKASHOP_WAITLIST_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_emailhistory"
+                        type="radio"
+                        label="MOD_QUICKLINKS_SHOW_HIKASHOP_EMAILHISTORY_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field
+                        name="show_hikashop_config"
+                        type="radio"
+                        label="MOD_QUICKLINKS_SHOW_HIKASHOP_CONFIG_LABEL"
+                        layout="joomla.form.field.radio.switcher"
+                        default="0"
+                        showon="ecommerce_component:HikaShop"
+                >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+            </fieldset>
+            
+            <fieldset name="advanced">
+                <field
+                    name="hue"
+                    type="color"
+                    label="MOD_QUICKLINKS_COLOR_HUE"
+                    format="hue"
+                    control="slider"
+                    preview="true"
+                    saveFormat="hsl"
+                    default="hsl(214,63%,20%)"
+                />
+                <field
+                    name="context"
+                    type="text"
+                    label="MOD_QUICKLINKS_GROUP_LABEL"
+                    default="mod_quicklinks"
+                />
+                <field
+                    name="header_icon"
+                    type="text"
+                    label="MOD_QUICKLINKS_HEADER_ICON_LABEL"
+                />
+                <field
+                    name="layout"
+                    type="modulelayout"
+                    label="JFIELD_ALT_LAYOUT_LABEL"
+                    class="form-select"
+                    validate="moduleLayout"
+                />
+                <field
+                    name="moduleclass_sfx"
+                    type="textarea"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    rows="3"
+                    validate="CssIdentifier"
+                />
+                <field
+                    name="cache"
+                    type="list"
+                    label="COM_MODULES_FIELD_CACHING_LABEL"
+                    default="0"
+                    filter="integer"
+                    validate="options"
+                    >
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+                <field
+                    name="cache_time"
+                    type="number"
+                    label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                    default="900"
+                    filter="integer"
+                />
+            </fieldset>
+        </fields>
+    </config>
+
+</extension>
