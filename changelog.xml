@@ -7,4 +7,12 @@
 			<item>Added update server and changelog.</item>
 		</note>
 	</changelog>
+	<changelog>
+		<element>mod_quicklinks</element>
+		<type>module</type>
+		<version>1.2</version>
+		<note>
+			<item>Changed helper files.</item>
+		</note>
+	</changelog>
 </changelogs>
