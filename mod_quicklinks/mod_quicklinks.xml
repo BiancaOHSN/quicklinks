@@ -7,9 +7,9 @@
     <license>GNU General Public License version 2 or later;</license>
     <authorEmail>info@ohsn.nl</authorEmail>
     <authorUrl>https://www.ohsn.nl</authorUrl>
-    <version>1.2</version>
+    <version>1.1</version>
     <description>MOD_QUICKLINKS_XML_DESCRIPTION</description>
-    <namespace path="src">Joomla\Module\Quicklinks</namespace>
+    <namespace path="src">OHSN\Module\Quicklinks</namespace>
     <files>
         <filename module="mod_quicklinks">mod_quicklinks.php</filename>
         <folder>forms</folder>
